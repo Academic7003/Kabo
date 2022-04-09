@@ -1,0 +1,43 @@
+{% extends 'base-portfolio.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="portfolio_page">
+    <div class="container">
+        <div class="section_content">
+            <div class="portfolio_list">
+                {% for list in portfolio_list %}
+                    <a href="" class="portfolio_text_left triangle_after second_animation invisible">
+                        <div class="left_col text_right">
+                            <span class="portfolio_type_text">Высотные работы</span>
+                            <h2>
+                                {{list.title}}
+                            </h2>
+                            <p>
+                            {{list.body}}
+                            </p>
+                            <span class="more"> <span class="play_icon"></span> УЗНАТЬ БОЛЬШЕ</span>
+                        </div>
+                        <div class="right_col">
+                            <div class="portfolio_img lines_before">
+                                <img src="{{list.imageURL}}" alt="">
+                            </div>
+                        </div>
+                    </a> 
+                {% endfor %}
+                <ul class="pagi first_animation invisible">
+                    <!-- display НАЗАД in second page -->
+                    <li class="d-none"><a href="">Назад</a></li>
+                    <li class="active"><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href="">ВПЕРЁД</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<a href="{% url 'portfolio:create-portfolio' %}">+Create post</a>
+{% endblock content %}

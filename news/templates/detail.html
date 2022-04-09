@@ -1,0 +1,31 @@
+{% extends 'base-news.html' %}
+
+{% load static %}
+
+{% block content %}
+        <!-- news section -->
+        <section class="news">
+            <div class="container">
+                <div class="section_content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="news_individual">
+                                <img src="{{new.imageURL}}" alt="">
+                                <p class="news_date"> <span>{{new.author}}</span>/ 22 МАЙ, 2021 </p>
+                                <h2 class="news_title">{{new.title}}</h2>
+                                <p>
+                                    {{new.body}}
+                                </p>
+                               
+                                <a href="{% url 'news:news-page' %}" class="active-btn mt-3"><span>Вернуться к списку новостей</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+<a href="{% url 'news:update' new.id%}">+Update</a>/
+<a href="{% url 'news:delete' new.id %}">+ Delete</a>
+{% endblock content %}

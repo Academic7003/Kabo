@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+        <!-- news section -->
+        <section class="news">
+            <div class="container">
+                <div class="section_content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="news_individual">
+                                <img src="{{project.imageURL}}" alt="">
+                              
+                                <h2 class="news_title">{{project.title}}</h2>
+                               
+                                <a href="{% url 'projects:projects' %}" class="active-btn mt-3"><span>Вернуться к списку проектов</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+<a href="{% url 'projects:projects-update' project.id %}">+Update</a>/
+<a href="{% url 'projects:projects-delete' project.id %}">+ Delete</a>
+{% endblock content %}
