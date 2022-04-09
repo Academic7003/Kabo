@@ -1,8 +1,40 @@
-{% extends 'base-portfolio.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
 {% block content %}
+
+<header class="header_promo other_pages_header">
+    <div class="header_promo_background" style="background-image: url(data/img/promo.jpg)"></div>
+    <div class="video_overlay"></div>
+    <div class="header_promo_video">
+        <video autoplay loop muted playsinline webkit-playsinline poster="#" preload="none"
+            src="{% static 'data/promo/promo_header.mp4' %}"></video>
+    </div>
+    <div class="header_promo_title">
+        <h1><span> ПОРТФОЛИО </span></h1>
+        <ul class="header_promo_breadcrumbs">
+            <li>
+                <a href="">Главная</a><i>/</i>
+            </li>
+            <li>
+                <span>
+                    ПОРТФОЛИО
+                </span>
+            </li>
+        </ul>
+    </div>
+</header>
+
+{% if user.is_authenticated %}
+    <p>Salom {{ user.username }}!</p>   
+    <p><a href="{% url 'logout' %}">Log out</a></p>
+{% else %}
+    <p>Siz log in qilmagansiz!</p>
+    <a href="{% url 'login' %}">Log In</a>/
+    <a href="{% url 'signup' %}">Sign up</a>
+{% endif %}
+
         <!-- news section -->
         <section class="news">
             <div class="container">
@@ -17,7 +49,7 @@
                                     {{portfolio.body}}
                                 </p>
                                
-                                <a href="{% url 'portfolio:main-portfolio' %}" class="active-btn mt-3"><span>Вернуться к списку новостей</span></a>
+                                <a href="{% url 'portfolio:main-portfolio' %}" class="active-btn mt-3"><span>Вернуться к списку Портфолио</span></a>
                             </div>
                         </div>
                     </div>

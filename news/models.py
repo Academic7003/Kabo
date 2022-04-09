@@ -27,7 +27,7 @@ class NewsModel(models.Model):
         return str(self.title)
     
     def get_absolute_url(self):
-        return reverse('portfolio:detail', args=[str(self.id)])
+        return reverse('news:detail', args=[str(self.id)])
     
     @property
     def imageURL(self):
